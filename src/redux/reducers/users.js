@@ -5,7 +5,7 @@ const initialState = {
 export default function users(state = initialState, action) {
 
     switch (action.type) {
-        case 'SAMPLE_ACTION_DISPATCHED' :
+        case 'USER_LIST_SUCCESS' :
         return { ...state, usersData: action.payload }
         default :
         return state

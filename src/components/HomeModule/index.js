@@ -10,8 +10,8 @@ export default class HomeModule extends Component {
     render() {
         return (
             <div className="index-content">
-                Sample Action Dispatched
-        <button onClick={this.props.testAction}>Click</button>
+                Get Users List
+        <button onClick={this.props.getUsersList}>Click</button>
                 <ol>
                     {
                         this.props.users.usersData.map((user, index) =>
@@ -25,11 +25,11 @@ export default class HomeModule extends Component {
 }
 
 HomeModule.propTypes = {
-    testAction: propTypes.string,
+    getUsersList: propTypes.string,
     users: propTypes.string
 }
 
 HomeModule.defaultProps = {
-    testAction: '',
+    getUsersList: '',
     users: ''
 }
