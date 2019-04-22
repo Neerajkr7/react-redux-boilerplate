@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const path = require('path')
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
@@ -6,6 +7,15 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 const webPackConfig = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname + '/public'),
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  devServer: {
+    historyApiFallback: true
+  },
   module: {
     rules: [
       {
@@ -17,10 +27,10 @@ const webPackConfig = {
       },
       {
         test: /\.s?css$/,
-        use: ["style-loader", "css-loader" ,"sass-loader"]
+        use: ["style-loader", "css-loader", "sass-loader"]
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|svg)$/,
         use: [
           {
             loader: 'file-loader',
